@@ -5,7 +5,7 @@ It has no dependencies.
 
 ## Install
 ```bash
-    npm install content-loader
+    npm install async-content-loader
 ```
 
 ## How to use
