@@ -1,5 +1,5 @@
 {
-  "name": "content-loader",
+  "name": "async-content-loader",
   "version": "1.0.0",
   "description": "library for content management in browser environment",
   "main": "main.js",

@@ -1,6 +1,7 @@
-# Content-Loader
+# Async-Content-Loader
 
-Library for content managing in browser environment
+Library for content managing in browser environment.
+It has no dependencies.
 
 ## Install
 ```bash
@@ -12,7 +13,7 @@ Library for content managing in browser environment
 ### globalContentLoaded - Promise
 Waiting for content
 ```javascript
-    import loader from '/node_modules/content-loader';
+    import loader from '/node_modules/async-content-loader';
     
     //Waiting for content loaded
     loader.globalContentLoaded.then(function () {
