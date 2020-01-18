@@ -29,6 +29,12 @@ loader.loadLibrary = ({ path, id }) => {
     });
 };
 
+function getResponse(xhr) {
+    if (xhr.responseType == 'arrayBuffer')
+        return { code: xhr.status, text: xhr.response };
+    return { code: xhr.status, text: xhr.responseText };
+}
+
 loader.request = (path, options = {}) => {
     return new Promise((resolve, reject) => {
         const XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
@@ -47,13 +53,13 @@ loader.request = (path, options = {}) => {
         xhr.onload = (event) => {
             let xhr = event.currentTarget;
             if (xhr.status >= 400)
-                return reject({ code: xhr.status, text: xhr.responseText });
-            return resolve({ code: xhr.status, text: xhr.responseText });
+                return reject(getResponse(xhr));
+            return resolve(getResponse(xhr));
         };
 
         xhr.onerror = (event) => {
             let xhr = event.currentTarget;
-            reject({ code: xhr.status, text: xhr.responseText })
+            reject(getResponse(xhr));
         };
 
         if (options.headers != null) {
