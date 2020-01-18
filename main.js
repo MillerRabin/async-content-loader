@@ -31,7 +31,7 @@ loader.loadLibrary = ({ path, id }) => {
 
 function getResponse(xhr) {
     if (xhr.responseType == 'arraybuffer')
-        return { code: xhr.status, text: xhr.response };
+        return { code: xhr.status, reponse: xhr.response };
     return { code: xhr.status, text: xhr.responseText };
 }
 
